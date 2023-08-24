@@ -1,5 +1,5 @@
 from flask import Blueprint, make_response, jsonify, request
-from etl_handler import ETLHandler
+from etl_handlers.etl_handler import ETLHandler
 from http import HTTPStatus
 
 api_blueprint = Blueprint('api', __name__)

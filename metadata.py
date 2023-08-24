@@ -1,7 +1,7 @@
 class Metadata:
     class OpenMeteoMetadata:
         URL = 'https://api.open-meteo.com/v1/forecast?latitude={0}&longitude={1}&hourly=temperature_2m,' \
-              'precipitation_probability&forecast_days={2}'
+              'precipitation,windspeed_10m&forecast_days={2}'
         # Request Parameters
         LATITUDE = 'latitude'
         LONGITUDE = 'longitude'
@@ -19,3 +19,12 @@ class Metadata:
         days = 'days'
 
         # Response Parameters
+
+    class Constant:
+        LONGITUDE = "longitude"
+        LATITUDE = "latitude"
+        DATE = "date"
+        TIME = "time"
+        TEMPERATURE = "temperature"
+        PRECIPITATION = "precipitation"
+        WIND_SPEED = "wind_speed"
