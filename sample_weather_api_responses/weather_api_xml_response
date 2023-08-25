@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <location>
+        <name>Le Kremlin-Bicetre</name>
+        <region>Ile-de-France</region>
+        <country>France</country>
+        <lat>48.86</lat>
+        <lon>2.35</lon>
+        <tz_id>Europe/Paris</tz_id>
+        <localtime_epoch>1692907930</localtime_epoch>
+        <localtime>2023-08-24 22:12</localtime>
+    </location>
+    <forecast>
+        <forecastday>
+            <date>2023-08-24</date>
+            <date_epoch>1692835200</date_epoch>
+            <hour>
+                <time_epoch>1692828000</time_epoch>
+                <time>2023-08-24 00:00</time>
+                <temp_c>23.6</temp_c>
+                <temp_f>74.5</temp_f>
+                <is_day>0</is_day>
+                <condition>
+                    <text>Patchy rain possible</text>
+                    <icon>//cdn.weatherapi.com/weather/64x64/night/176.png</icon>
+                    <code>1063</code>
+                </condition>
+                <wind_mph>1.6</wind_mph>
+                <wind_kph>2.5</wind_kph>
+                <wind_degree>43</wind_degree>
+                <wind_dir>NE</wind_dir>
+                <pressure_mb>1017</pressure_mb>
+                <pressure_in>30.02</pressure_in>
+                <precip_mm>0.1</precip_mm>
+                <precip_in>0</precip_in>
+            </hour>
+            <hour>
+                <time_epoch>1692831600</time_epoch>
+                <time>2023-08-24 01:00</time>
+                <temp_c>22.7</temp_c>
+                <temp_f>72.9</temp_f>
+                <is_day>0</is_day>
+                <condition>
+                    <text>Patchy rain possible</text>
+                    <icon>//cdn.weatherapi.com/weather/64x64/night/176.png</icon>
+                    <code>1063</code>
+                </condition>
+                <wind_mph>4</wind_mph>
+                <wind_kph>6.5</wind_kph>
+                <wind_degree>93</wind_degree>
+                <wind_dir>E</wind_dir>
+                <pressure_mb>1016</pressure_mb>
+                <pressure_in>30</pressure_in>
+                <precip_mm>1.1</precip_mm>
+            </hour>
+        </forecastday>
+    </forecast>
+</root>
