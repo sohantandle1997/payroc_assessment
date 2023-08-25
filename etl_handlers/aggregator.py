@@ -3,11 +3,23 @@ from metadata import Metadata
 
 class Aggregator:
     def aggregate(self, *args, **kwargs):
+        """
+        Base aggregator
+        :param args:
+        :param kwargs:
+        :return:
+        """
         raise NotImplementedError
 
 
 class AverageAggregator(Aggregator):
     def aggregate(self, json_transformed_data, xml_transformed_data):
+        """
+        Method to average the the json and xml transformed data
+        :param json_transformed_data:
+        :param xml_transformed_data:
+        :return:
+        """
         aggregated_data = {}
 
         for timestamp in json_transformed_data:

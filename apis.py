@@ -11,7 +11,16 @@ def extract_transform_load_api():
     longitude = request.args.get('long')
     forecast_days = request.args.get('forecast-days')
 
-    _etl_handler = ETLHandler(latitude, longitude, forecast_days)
-    _etl_handler.perform_etl()
+    if int(forecast_days) > 14:
+        return make_response(jsonify({'message': 'Invalid forecast-days, max forecast upto 14 days'}), HTTPStatus.BAD_REQUEST)
 
-    return make_response(jsonify({'message': 'ETL Successful'}), HTTPStatus.OK)
+    if latitude and longitude and forecast_days:
+        try:
+            _etl_handler = ETLHandler(latitude, longitude, forecast_days)
+            _etl_handler.perform_etl()
+        except:
+            return make_response(jsonify({'message': 'Failed to perform ETL'}), HTTPStatus.INTERNAL_SERVER_ERROR)
+
+        return make_response(jsonify({'message': 'ETL Successful'}), HTTPStatus.OK)
+
+    return make_response(jsonify({'message': 'Invalid request parameters'}), HTTPStatus.BAD_REQUEST)
