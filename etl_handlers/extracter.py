@@ -30,6 +30,4 @@ class XmlWeatherDataSource(WeatherDataSource):
         _url = Metadata.WeatherAPIMetadata.URL.format(self.latitude, self.longitude, self.forecast_days)
         _response = requests.get(_url)
         xml_content = _response.content
-        # xml_root = ET.fromstring(xml_content)
-        # print(xml_root)
         return xml_content

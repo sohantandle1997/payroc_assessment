@@ -9,6 +9,10 @@ class Metadata:
         FORECAST_DAYS = 'forecast_days'
 
         # Response Parameters
+        TIME = "time"
+        TEMPERATURE = "temperature_2m"
+        PRECIPITATION = "precipitation"
+        WIND_SPEED = "windspeed_10m"
 
     class WeatherAPIMetadata:
         URL = 'http://api.weatherapi.com/v1/forecast.xml?key=bcfcd72be62b456285c173318232408&q={0},{1}&days={2}'
@@ -19,6 +23,16 @@ class Metadata:
         days = 'days'
 
         # Response Parameters
+        LOCATION = "location"
+        LONGITUDE = "lon"
+        LATITUDE = "lat"
+        FORECAST_DAY = "forecastday"
+        FORECAST = "forecast"
+        TIME = "time"
+        HOUR = "hour"
+        TEMPERATURE = "temp_c"
+        PRECIPITATION = "precip_mm"
+        WIND_SPEED = "wind_kph"
 
     class Constant:
         LONGITUDE = "longitude"
@@ -28,3 +42,4 @@ class Metadata:
         TEMPERATURE = "temperature"
         PRECIPITATION = "precipitation"
         WIND_SPEED = "wind_speed"
+

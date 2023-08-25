@@ -1,5 +1,5 @@
-from app import db
 from models import WeatherData
+from metadata import Metadata
 
 
 class Loader:
@@ -7,14 +7,15 @@ class Loader:
         self.data_to_load = data_to_load
 
     def load(self):
+        from app import weather_model
         for timestamp, data in self.data_to_load.items():
-            latitude = 52.52
-            longitude = 13.419998
-            date = data["date"]
-            time = data["time"]
-            temperature = data["temperature"]
-            precipitation = data["rainfall"]
-            wind_speed = 0.0
+            latitude = data[Metadata.Constant.LATITUDE]
+            longitude = data[Metadata.Constant.LONGITUDE]
+            date = data[Metadata.Constant.DATE]
+            time = data[Metadata.Constant.TIME]
+            temperature = data[Metadata.Constant.TEMPERATURE]
+            precipitation = data[Metadata.Constant.PRECIPITATION]
+            wind_speed = data[Metadata.Constant.WIND_SPEED]
 
             weather_entry = WeatherData(
                 latitude=latitude,
@@ -26,6 +27,6 @@ class Loader:
                 wind_speed=wind_speed
             )
 
-            db.session.add(weather_entry)
+            weather_model.session.add(weather_entry)
 
-        db.session.commit()
+        weather_model.session.commit()

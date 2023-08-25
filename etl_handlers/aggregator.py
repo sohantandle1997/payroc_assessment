@@ -14,10 +14,15 @@ class AverageAggregator(Aggregator):
             if timestamp in xml_transformed_data:
                 avg_temperature = (json_transformed_data[timestamp][Metadata.Constant.TEMPERATURE] +
                                    xml_transformed_data[timestamp][Metadata.Constant.TEMPERATURE]) / 2
+                avg_temperature = round(avg_temperature, 2)
+
                 avg_precipitation = (json_transformed_data[timestamp][Metadata.Constant.PRECIPITATION] +
                                      xml_transformed_data[timestamp][Metadata.Constant.PRECIPITATION]) / 2
+                avg_precipitation = round(avg_precipitation, 2)
+
                 avg_wind_speed = (json_transformed_data[timestamp][Metadata.Constant.WIND_SPEED] +
                                   xml_transformed_data[timestamp][Metadata.Constant.WIND_SPEED]) / 2
+                avg_wind_speed = round(avg_wind_speed, 2)
 
                 aggregated_data[timestamp] = {
                     Metadata.Constant.LONGITUDE: json_transformed_data[timestamp][Metadata.Constant.LONGITUDE],

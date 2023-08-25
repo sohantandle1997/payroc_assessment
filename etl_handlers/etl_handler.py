@@ -1,6 +1,7 @@
 from etl_handlers.transformer import JsonWeatherDataTransformer, XmlWeatherDataTransformer
 from etl_handlers.extracter import JsonWeatherDataSource, XmlWeatherDataSource
 from etl_handlers.aggregator import AverageAggregator
+from etl_handlers.loader import Loader
 
 
 class ETLHandler:
@@ -24,6 +25,11 @@ class ETLHandler:
 
         aggregator = AverageAggregator()
         aggregated_data = aggregator.aggregate(json_transformed_data, xml_transformed_data)
+
+        loader = Loader(aggregated_data)
+        loader.load()
+
+
 
 
 

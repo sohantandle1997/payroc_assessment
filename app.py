@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from models import WeatherData, db as weather_model
 from apis import api_blueprint
 
