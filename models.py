@@ -15,3 +15,4 @@ class WeatherData(db.Model):
     temperature = db.Column(db.Float, nullable=False)
     precipitation = db.Column(db.Float, nullable=False)
     wind_speed = db.Column(db.Float, nullable=False)
+    wind_direction = db.Column(db.Float, nullable=False)

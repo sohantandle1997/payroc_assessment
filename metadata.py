@@ -1,7 +1,7 @@
 class Metadata:
     class OpenMeteoMetadata:
         URL = 'https://api.open-meteo.com/v1/forecast?latitude={0}&longitude={1}&hourly=temperature_2m,' \
-              'precipitation,windspeed_10m&forecast_days={2}'
+              'precipitation,windspeed_10m,winddirection_10m&forecast_days={2}'
         # Request Parameters
         LATITUDE = 'latitude'
         LONGITUDE = 'longitude'
@@ -13,6 +13,7 @@ class Metadata:
         TEMPERATURE = "temperature_2m"
         PRECIPITATION = "precipitation"
         WIND_SPEED = "windspeed_10m"
+        WIND_DIRECTION = "winddirection_10m"
 
     class WeatherAPIMetadata:
         URL = 'http://api.weatherapi.com/v1/forecast.xml?key=bcfcd72be62b456285c173318232408&q={0},{1}&days={2}'
@@ -33,6 +34,7 @@ class Metadata:
         TEMPERATURE = "temp_c"
         PRECIPITATION = "precip_mm"
         WIND_SPEED = "wind_kph"
+        WIND_DIRECTION = "wind_degree"
 
     class Constant:
         LONGITUDE = "longitude"
@@ -42,4 +44,5 @@ class Metadata:
         TEMPERATURE = "temperature"
         PRECIPITATION = "precipitation"
         WIND_SPEED = "wind_speed"
+        WIND_DIRECTION = "wind_direction"
 

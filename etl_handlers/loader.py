@@ -28,12 +28,14 @@ class Loader:
             temperature = data[Metadata.Constant.TEMPERATURE]
             precipitation = data[Metadata.Constant.PRECIPITATION]
             wind_speed = data[Metadata.Constant.WIND_SPEED]
+            wind_direction = data[Metadata.Constant.WIND_DIRECTION]
 
             if existing_entry:
                 # Update new weather parameters onto the existing entry if data already exists
                 existing_entry.temperature = data[Metadata.Constant.TEMPERATURE]
                 existing_entry.precipitation = data[Metadata.Constant.PRECIPITATION]
                 existing_entry.wind_speed = data[Metadata.Constant.WIND_SPEED]
+                existing_entry.wind_direction = data[Metadata.Constant.WIND_DIRECTION]
             else:
                 new_weather_entry = WeatherData(
                     latitude=latitude,
@@ -42,7 +44,8 @@ class Loader:
                     time=time,
                     temperature=temperature,
                     precipitation=precipitation,
-                    wind_speed=wind_speed
+                    wind_speed=wind_speed,
+                    wind_direction=wind_direction
                 )
                 weather_model.session.add(new_weather_entry)
 

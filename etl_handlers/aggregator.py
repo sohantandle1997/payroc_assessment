@@ -36,6 +36,10 @@ class AverageAggregator(Aggregator):
                                   xml_transformed_data[timestamp][Metadata.Constant.WIND_SPEED]) / 2
                 avg_wind_speed = round(avg_wind_speed, 2)
 
+                avg_wind_direction = (json_transformed_data[timestamp][Metadata.Constant.WIND_DIRECTION] +
+                                      xml_transformed_data[timestamp][Metadata.Constant.WIND_DIRECTION]) / 2
+                avg_wind_direction = round(avg_wind_direction, 2)
+
                 aggregated_data[timestamp] = {
                     Metadata.Constant.LONGITUDE: json_transformed_data[timestamp][Metadata.Constant.LONGITUDE],
                     Metadata.Constant.LATITUDE: json_transformed_data[timestamp][Metadata.Constant.LATITUDE],
@@ -43,8 +47,8 @@ class AverageAggregator(Aggregator):
                     Metadata.Constant.TIME: json_transformed_data[timestamp][Metadata.Constant.TIME],
                     Metadata.Constant.TEMPERATURE: avg_temperature,
                     Metadata.Constant.PRECIPITATION: avg_precipitation,
-                    Metadata.Constant.WIND_SPEED: avg_wind_speed
+                    Metadata.Constant.WIND_SPEED: avg_wind_speed,
+                    Metadata.Constant.WIND_DIRECTION: avg_wind_direction
                 }
 
-        print(aggregated_data)
         return aggregated_data

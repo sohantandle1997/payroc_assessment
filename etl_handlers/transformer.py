@@ -26,6 +26,7 @@ class JsonWeatherDataTransformer(WeatherDataTransformer):
         temperature_list = hourly_data[Metadata.OpenMeteoMetadata.TEMPERATURE]
         precipitation_list = hourly_data[Metadata.OpenMeteoMetadata.PRECIPITATION]
         wind_speed_list = hourly_data[Metadata.OpenMeteoMetadata.WIND_SPEED]
+        wind_direction_list = hourly_data[Metadata.OpenMeteoMetadata.WIND_SPEED]
 
         transformed_data = {}
 
@@ -34,6 +35,7 @@ class JsonWeatherDataTransformer(WeatherDataTransformer):
             temperature = temperature_list[i]
             precipitation = precipitation_list[i]
             wind_speed = wind_speed_list[i]
+            wind_direction = wind_direction_list[i]
 
             date, time = timestamp.split("T")
             transformed_data[date + ' ' + time] = {
@@ -43,7 +45,8 @@ class JsonWeatherDataTransformer(WeatherDataTransformer):
                 Metadata.Constant.TIME: time,
                 Metadata.Constant.TEMPERATURE: temperature,
                 Metadata.Constant.PRECIPITATION: precipitation,
-                Metadata.Constant.WIND_SPEED: wind_speed
+                Metadata.Constant.WIND_SPEED: wind_speed,
+                Metadata.Constant.WIND_DIRECTION: wind_direction
             }
 
         return transformed_data
@@ -79,6 +82,7 @@ class XmlWeatherDataTransformer(WeatherDataTransformer):
                 temperature = float(hour.find(f'./{Metadata.WeatherAPIMetadata.TEMPERATURE}').text)
                 precipitation = float(hour.find(f'./{Metadata.WeatherAPIMetadata.PRECIPITATION}').text)
                 wind_speed = float(hour.find(f'./{Metadata.WeatherAPIMetadata.WIND_SPEED}').text)
+                wind_direction = float(hour.find(f'./{Metadata.WeatherAPIMetadata.WIND_DIRECTION}').text)
 
                 date, time = timestamp.split()
                 transformed_data[timestamp] = {
@@ -88,7 +92,8 @@ class XmlWeatherDataTransformer(WeatherDataTransformer):
                     Metadata.Constant.TIME: time,
                     Metadata.Constant.TEMPERATURE: temperature,
                     Metadata.Constant.PRECIPITATION: precipitation,
-                    Metadata.Constant.WIND_SPEED: wind_speed
+                    Metadata.Constant.WIND_SPEED: wind_speed,
+                    Metadata.Constant.WIND_DIRECTION: wind_direction
                 }
 
         return transformed_data
