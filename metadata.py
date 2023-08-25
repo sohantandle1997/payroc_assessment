@@ -45,4 +45,5 @@ class Metadata:
         PRECIPITATION = "precipitation"
         WIND_SPEED = "wind_speed"
         WIND_DIRECTION = "wind_direction"
+        HOURLY_DATA = "hourly_data"
 
